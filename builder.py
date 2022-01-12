@@ -1,4 +1,6 @@
-from model import *
+from model import Communities, Network
+import yaml
+from typing import Dict
 import os
 from pathlib import Path
 import json
