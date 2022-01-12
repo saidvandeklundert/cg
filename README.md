@@ -1,6 +1,10 @@
 # cg
 
-Configuration Generation
+Configuration Generation.
+
+![explanation]()
+
+
 Install the `requirements.txt` and then run `main.py`:
 
 ```
