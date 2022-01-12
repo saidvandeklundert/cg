@@ -1,0 +1,31 @@
+{
+  "name": "R2",
+  "serial": "BX109",
+  "model": "MX10008",
+  "platform": "juniper",
+  "mgmt": "10.0.0.2/31",
+  "role": "leaf",
+  "interfaces": [
+    {
+      "name": "et-0/0/0"
+    },
+    {
+      "name": "et-0/0/1"
+    }
+  ],
+  "communities": {
+    "std_communities": {
+      "COMMUNITY_1": "1:1",
+      "COMMUNITY_2": "2:2",
+      "COMMUNITY_3": "3:3"
+    },
+    "other_communities": null
+  },
+  "secrets": {
+    "std_communities": {
+      "COMMUNITY_1": "1:1",
+      "COMMUNITY_2": "2:2",
+      "COMMUNITY_3": "3:3"
+    }
+  }
+}
