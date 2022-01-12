@@ -1,10 +1,7 @@
 from model import Communities, Network
-import yaml
 from typing import Dict
-import os
-from pathlib import Path
-import json
 from jinja2 import Environment, FileSystemLoader
+import yaml
 
 
 def load_communities() -> Communities:
@@ -66,25 +63,22 @@ class NetworkBuilder:
                 f.write(device.json(indent=2))
 
     def render_templates(self):
+        """Render the templates and write the configuration to disk."""
+        for device in self.network.devices:
+            device_name = device.name
+            file_loader = FileSystemLoader("templates")
+            env = Environment(loader=file_loader)
 
-        for file_name in Path(os.getcwd()).glob("**/*.json"):
-            with open(file_name) as f:
-                data = json.load(f)
-                device_name = data["name"]
-                file_loader = FileSystemLoader("templates")
-                env = Environment(loader=file_loader)
-
-                template = env.get_template("template.j2")
-                output = template.render(data=data)
-
-                if output:
-                    # avoid the Jinja whitespace nonesense:
-                    output = "\n".join(
-                        [line for line in output.splitlines() if line.strip()]
-                    )
-                    with open(f"{device_name}.cfg", "w") as f:
-                        f.write(output)
-                    print(f"\n\nRendered {device_name}.cfg\n\n")
-                    print(output)
-                else:
-                    raise RuntimeError("No template output!!")
+            template = env.get_template("template.j2")
+            output = template.render(data=device.dict())
+            if output:
+                # avoid the Jinja whitespace nonesense:
+                output = "\n".join(
+                    [line for line in output.splitlines() if line.strip()]
+                )
+                with open(f"{device_name}.cfg", "w") as f:
+                    f.write(output)
+                print(f"\n\nRendered {device_name}.cfg\n\n")
+                print(output)
+            else:
+                raise RuntimeError("No template output!!")
