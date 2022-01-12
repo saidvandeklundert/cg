@@ -2,7 +2,7 @@
 
 Configuration Generation.
 
-![explanation]()
+![explanation](https://github.com/saidvandeklundert/cg/blob/main/img/network_builder.png)
 
 
 Install the `requirements.txt` and then run `main.py`:
