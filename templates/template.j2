@@ -1,9 +1,10 @@
-Available template data:
+{#
+Uncomment to display available template data:
 {{ data | pprint }}
-
+#}
 set system host-name {{ data.name }}
 
-set system root-authentication encrypted-password "{{ data.secrets.root_hash }}"
+set system root-authentication encrypted-password "{{ data["secrets"]["root_hash"] }}"
 
 {%if data.role == "leaf" %}
     {% for community_name, community_value in data["communities"]["std_communities"].items() %}

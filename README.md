@@ -6,37 +6,20 @@ Install the `requirements.txt` and then run `main.py`:
 ```
 python .\main.py
 rendering templates
-Available template data:
-{'communities': None,
- 'interfaces': [{'name': 'et-0/0/0'}, {'name': 'et-0/0/1'}],
- 'mgmt': '10.0.0.1/31',
- 'model': 'MX10008',
- 'name': 'R1',
- 'platform': 'juniper',
- 'role': 'spine',
- 'secrets': {'std_communities': {'COMMUNITY_1': '1:1',
-                                 'COMMUNITY_2': '2:2',
-                                 'COMMUNITY_3': '3:3'}},
- 'serial': 'BX109'}
+
+
+Rendered R1.cfg
+
+
 set system host-name R1
-set system root-authentication encrypted-password ""
-Available template data:
-{'communities': {'other_communities': None,
-                 'std_communities': {'COMMUNITY_1': '1:1',
-                                     'COMMUNITY_2': '2:2',
-                                     'COMMUNITY_3': '3:3'}},
- 'interfaces': [{'name': 'et-0/0/0'}, {'name': 'et-0/0/1'}],
- 'mgmt': '10.0.0.2/31',
- 'model': 'MX10008',
- 'name': 'R2',
- 'platform': 'juniper',
- 'role': 'leaf',
- 'secrets': {'std_communities': {'COMMUNITY_1': '1:1',
-                                 'COMMUNITY_2': '2:2',
-                                 'COMMUNITY_3': '3:3'}},
- 'serial': 'BX109'}
+set system root-authentication encrypted-password "$ABC123"
+
+
+Rendered R2.cfg
+
+
 set system host-name R2
-set system root-authentication encrypted-password ""
+set system root-authentication encrypted-password "$ABC123"
 set policy-options community COMMUNITY_1 members 1:1
 set policy-options community COMMUNITY_2 members 2:2
 set policy-options community COMMUNITY_3 members 3:3

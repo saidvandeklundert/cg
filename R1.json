@@ -15,10 +15,8 @@
   ],
   "communities": null,
   "secrets": {
-    "std_communities": {
-      "COMMUNITY_1": "1:1",
-      "COMMUNITY_2": "2:2",
-      "COMMUNITY_3": "3:3"
-    }
+    "admin_password": "admin",
+    "admin_username": "admin",
+    "root_hash": "$ABC123"
   }
 }

@@ -20,7 +20,7 @@ def load_communities() -> Communities:
 def load_secrets_from_vault() -> Dict[str, str]:
     """Retrieves secrets information from Vault"""
 
-    with open("communities.yaml") as f:
+    with open("secrets.yaml") as f:
         secrets_data = yaml.safe_load(f)
 
     return secrets_data
@@ -84,6 +84,7 @@ class NetworkBuilder:
                     )
                     with open(f"{device_name}.cfg", "w") as f:
                         f.write(output)
+                    print(f"\n\nRendered {device_name}.cfg\n\n")
                     print(output)
                 else:
                     raise RuntimeError("No template output!!")
