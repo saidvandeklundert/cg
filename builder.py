@@ -43,7 +43,7 @@ class NetworkBuilder:
         self.communities = communities
         self.secrets = secrets
         self.build_network()
-        self.create_schema()
+        self.store_schema()
         self.render_templates()
 
     def build_network(self):
@@ -59,8 +59,8 @@ class NetworkBuilder:
 
         return self.network
 
-    def create_schema(self):
-        """Create a per_device_schema"""
+    def store_schema(self):
+        """Store the 'per device' schema."""
         for device in self.network.devices:
             with open(f"{device.name}.json", "w") as f:
                 f.write(device.json(indent=2))
