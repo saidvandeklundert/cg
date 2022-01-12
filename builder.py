@@ -66,7 +66,7 @@ class NetworkBuilder:
                 f.write(device.json(indent=2))
 
     def render_templates(self):
-        print("rendering templates")
+
         for file_name in Path(os.getcwd()).glob("**/*.json"):
             with open(file_name) as f:
                 data = json.load(f)
